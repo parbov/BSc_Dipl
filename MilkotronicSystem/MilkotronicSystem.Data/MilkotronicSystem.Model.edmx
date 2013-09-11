@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MilkotronicSystemModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="MilkotronicSystemModelStoreContainer">
+          <EntitySet Name="PCB_Data" EntityType="MilkotronicSystemModel.Store.PCB_Data" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PCBs" EntityType="MilkotronicSystemModel.Store.PCBs" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sensors" EntityType="MilkotronicSystemModel.Store.Sensors" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Thermo_Data" EntityType="MilkotronicSystemModel.Store.Thermo_Data" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="MilkotronicSystemModel.Store.Users" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_PCB_Data_PCBs1" Association="MilkotronicSystemModel.Store.FK_PCB_Data_PCBs1">
+            <End Role="PCBs" EntitySet="PCBs" />
+            <End Role="PCB_Data" EntitySet="PCB_Data" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sensors_PCBs" Association="MilkotronicSystemModel.Store.FK_Sensors_PCBs">
+            <End Role="PCBs" EntitySet="PCBs" />
+            <End Role="Sensors" EntitySet="Sensors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Thermo_Data_PCBs1" Association="MilkotronicSystemModel.Store.FK_Thermo_Data_PCBs1">
+            <End Role="PCBs" EntitySet="PCBs" />
+            <End Role="Thermo_Data" EntitySet="Thermo_Data" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="PCB_Data">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pcbId" Type="int" Nullable="false" />
+          <Property Name="date" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="time" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="operation" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="model" Type="nchar" Nullable="false" MaxLength="10" />
+          <Property Name="boxNumber" Type="int" />
+          <Property Name="speed" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Cal1" Type="nvarchar" MaxLength="15" />
+          <Property Name="Cal2" Type="nvarchar" MaxLength="15" />
+          <Property Name="Cal3" Type="nvarchar" MaxLength="15" />
+          <Property Name="program" Type="varchar(max)" />
+          <Property Name="data" Type="varchar(max)" />
+          <Property Name="orderNumber" Type="nvarchar" MaxLength="10" />
+          <Property Name="ClientName" Type="nvarchar" MaxLength="50" />
+          <Property Name="country" Type="nvarchar" MaxLength="50" />
+          <Property Name="operator" Type="nchar" MaxLength="10" />
+          <Property Name="programVersion" Type="float" />
+          <Property Name="options" Type="nvarchar" MaxLength="50" />
+          <Property Name="numberPcb" Type="int" Nullable="false" />
+          <Property Name="numberSensor" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PCBs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pcbNumber" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sensors">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="number" Type="int" Nullable="false" />
+          <Property Name="pcbId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Thermo_Data">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="time" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="box" Type="int" />
+          <Property Name="pcbId" Type="int" Nullable="false" />
+          <Property Name="sensor" Type="int" Nullable="false" />
+          <Property Name="N40" Type="int" />
+          <Property Name="P60" Type="int" />
+          <Property Name="workplace" Type="nvarchar" MaxLength="50" />
+          <Property Name="programVersion" Type="float" />
+          <Property Name="ad623" Type="int" />
+          <Property Name="amplitude" Type="int" />
+          <Property Name="numberPcb" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="authCode" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="sessionKey" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_PCB_Data_PCBs1">
+          <End Role="PCBs" Type="MilkotronicSystemModel.Store.PCBs" Multiplicity="1" />
+          <End Role="PCB_Data" Type="MilkotronicSystemModel.Store.PCB_Data" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PCBs">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PCB_Data">
+              <PropertyRef Name="pcbId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sensors_PCBs">
+          <End Role="PCBs" Type="MilkotronicSystemModel.Store.PCBs" Multiplicity="1" />
+          <End Role="Sensors" Type="MilkotronicSystemModel.Store.Sensors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PCBs">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Sensors">
+              <PropertyRef Name="pcbId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Thermo_Data_PCBs1">
+          <End Role="PCBs" Type="MilkotronicSystemModel.Store.PCBs" Multiplicity="1" />
+          <End Role="Thermo_Data" Type="MilkotronicSystemModel.Store.Thermo_Data" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PCBs">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Thermo_Data">
+              <PropertyRef Name="pcbId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MilkotronicSystemModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MilkotronicSystemEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="PCB_Data" EntityType="MilkotronicSystemModel.PCB_Data" />
+          <EntitySet Name="PCBs" EntityType="MilkotronicSystemModel.PCB" />
+          <EntitySet Name="Sensors" EntityType="MilkotronicSystemModel.Sensor" />
+          <EntitySet Name="Thermo_Data" EntityType="MilkotronicSystemModel.Thermo_Data" />
+          <AssociationSet Name="FK_PCB_Data_PCBs1" Association="MilkotronicSystemModel.FK_PCB_Data_PCBs1">
+            <End Role="PCB" EntitySet="PCBs" />
+            <End Role="PCB_Data" EntitySet="PCB_Data" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sensors_PCBs" Association="MilkotronicSystemModel.FK_Sensors_PCBs">
+            <End Role="PCB" EntitySet="PCBs" />
+            <End Role="Sensor" EntitySet="Sensors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Thermo_Data_PCBs1" Association="MilkotronicSystemModel.FK_Thermo_Data_PCBs1">
+            <End Role="PCB" EntitySet="PCBs" />
+            <End Role="Thermo_Data" EntitySet="Thermo_Data" />
+          </AssociationSet>
+          <EntitySet Name="Users" EntityType="MilkotronicSystemModel.User" />
+        </EntityContainer>
+        <EntityType Name="PCB_Data">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="pcbId" Nullable="false" />
+          <Property Type="String" Name="date" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="time" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="operation" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="model" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="Int32" Name="boxNumber" />
+          <Property Type="String" Name="speed" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Cal1" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Cal2" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Cal3" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="program" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="data" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="orderNumber" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ClientName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="country" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="operator" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="Double" Name="programVersion" />
+          <Property Type="String" Name="options" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="numberPcb" Nullable="false" />
+          <NavigationProperty Name="PCB" Relationship="MilkotronicSystemModel.FK_PCB_Data_PCBs1" FromRole="PCB_Data" ToRole="PCB" />
+          <Property Type="Int32" Name="numberSensor" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PCB">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="pcbNumber" Nullable="false" />
+          <NavigationProperty Name="PCB_Data" Relationship="MilkotronicSystemModel.FK_PCB_Data_PCBs1" FromRole="PCB" ToRole="PCB_Data" />
+          <NavigationProperty Name="Sensors" Relationship="MilkotronicSystemModel.FK_Sensors_PCBs" FromRole="PCB" ToRole="Sensor" />
+          <NavigationProperty Name="Thermo_Data" Relationship="MilkotronicSystemModel.FK_Thermo_Data_PCBs1" FromRole="PCB" ToRole="Thermo_Data" />
+        </EntityType>
+        <EntityType Name="Sensor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="number" Nullable="false" />
+          <Property Type="Int32" Name="pcbId" Nullable="false" />
+          <NavigationProperty Name="PCB" Relationship="MilkotronicSystemModel.FK_Sensors_PCBs" FromRole="Sensor" ToRole="PCB" />
+        </EntityType>
+        <EntityType Name="Thermo_Data">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="date" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="time" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="box" />
+          <Property Type="Int32" Name="pcbId" Nullable="false" />
+          <Property Type="Int32" Name="sensor" Nullable="false" />
+          <Property Type="Int32" Name="N40" />
+          <Property Type="Int32" Name="P60" />
+          <Property Type="String" Name="workplace" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="programVersion" />
+          <Property Type="Int32" Name="ad623" />
+          <Property Type="Int32" Name="amplitude" />
+          <Property Type="Int32" Name="numberPcb" Nullable="false" />
+          <NavigationProperty Name="PCB" Relationship="MilkotronicSystemModel.FK_Thermo_Data_PCBs1" FromRole="Thermo_Data" ToRole="PCB" />
+        </EntityType>
+        <Association Name="FK_PCB_Data_PCBs1">
+          <End Type="MilkotronicSystemModel.PCB" Role="PCB" Multiplicity="1" />
+          <End Type="MilkotronicSystemModel.PCB_Data" Role="PCB_Data" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PCB">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PCB_Data">
+              <PropertyRef Name="pcbId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sensors_PCBs">
+          <End Type="MilkotronicSystemModel.PCB" Role="PCB" Multiplicity="1" />
+          <End Type="MilkotronicSystemModel.Sensor" Role="Sensor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PCB">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Sensor">
+              <PropertyRef Name="pcbId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Thermo_Data_PCBs1">
+          <End Type="MilkotronicSystemModel.PCB" Role="PCB" Multiplicity="1" />
+          <End Type="MilkotronicSystemModel.Thermo_Data" Role="Thermo_Data" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PCB">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Thermo_Data">
+              <PropertyRef Name="pcbId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="username" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="authCode" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="sessionKey" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MilkotronicSystemModelStoreContainer" CdmEntityContainer="MilkotronicSystemEntities">
+    <EntitySetMapping Name="PCB_Data">
+      <EntityTypeMapping TypeName="IsTypeOf(MilkotronicSystemModel.PCB_Data)">
+        <MappingFragment StoreEntitySet="PCB_Data">
+          <ScalarProperty Name="numberSensor" ColumnName="numberSensor" />
+                <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="pcbId" ColumnName="pcbId" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="operation" ColumnName="operation" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="boxNumber" ColumnName="boxNumber" />
+          <ScalarProperty Name="speed" ColumnName="speed" />
+          <ScalarProperty Name="Cal1" ColumnName="Cal1" />
+          <ScalarProperty Name="Cal2" ColumnName="Cal2" />
+          <ScalarProperty Name="Cal3" ColumnName="Cal3" />
+          <ScalarProperty Name="program" ColumnName="program" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="orderNumber" ColumnName="orderNumber" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="operator" ColumnName="operator" />
+          <ScalarProperty Name="programVersion" ColumnName="programVersion" />
+          <ScalarProperty Name="options" ColumnName="options" />
+          <ScalarProperty Name="numberPcb" ColumnName="numberPcb" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PCBs">
+      <EntityTypeMapping TypeName="IsTypeOf(MilkotronicSystemModel.PCB)">
+        <MappingFragment StoreEntitySet="PCBs">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="pcbNumber" ColumnName="pcbNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sensors">
+      <EntityTypeMapping TypeName="IsTypeOf(MilkotronicSystemModel.Sensor)">
+        <MappingFragment StoreEntitySet="Sensors">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="number" ColumnName="number" />
+          <ScalarProperty Name="pcbId" ColumnName="pcbId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Thermo_Data">
+      <EntityTypeMapping TypeName="IsTypeOf(MilkotronicSystemModel.Thermo_Data)">
+        <MappingFragment StoreEntitySet="Thermo_Data">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="box" ColumnName="box" />
+          <ScalarProperty Name="pcbId" ColumnName="pcbId" />
+          <ScalarProperty Name="sensor" ColumnName="sensor" />
+          <ScalarProperty Name="N40" ColumnName="N40" />
+          <ScalarProperty Name="P60" ColumnName="P60" />
+          <ScalarProperty Name="workplace" ColumnName="workplace" />
+          <ScalarProperty Name="programVersion" ColumnName="programVersion" />
+          <ScalarProperty Name="ad623" ColumnName="ad623" />
+          <ScalarProperty Name="amplitude" ColumnName="amplitude" />
+          <ScalarProperty Name="numberPcb" ColumnName="numberPcb" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="MilkotronicSystemModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="sessionKey" ColumnName="sessionKey" />
+                <ScalarProperty Name="authCode" ColumnName="authCode" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

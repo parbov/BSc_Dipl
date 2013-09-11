@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7f5d0d41d6f044e5b46a71a3928b8ab1" Name="Diagram1" ZoomLevel="77">
+        <EntityTypeShape EntityType="MilkotronicSystemModel.PCB_Data" Width="1.5" PointX="3" PointY="1.375" />
+        <EntityTypeShape EntityType="MilkotronicSystemModel.PCB" Width="1.5" PointX="0.75" PointY="6.5" />
+        <EntityTypeShape EntityType="MilkotronicSystemModel.Sensor" Width="1.5" PointX="3" PointY="7.25" />
+        <EntityTypeShape EntityType="MilkotronicSystemModel.Thermo_Data" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <AssociationConnector Association="MilkotronicSystemModel.FK_PCB_Data_PCBs1" />
+        <AssociationConnector Association="MilkotronicSystemModel.FK_Sensors_PCBs" />
+        <AssociationConnector Association="MilkotronicSystemModel.FK_Thermo_Data_PCBs1" />
+        <EntityTypeShape EntityType="MilkotronicSystemModel.User" Width="1.5" PointX="5.75" PointY="6.5" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

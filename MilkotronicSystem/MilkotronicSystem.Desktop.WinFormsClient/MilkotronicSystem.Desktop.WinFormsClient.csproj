@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D6C985E2-E8EC-4506-96B3-C96BCE59AF5D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MilkotronicSystem.Desktop.WinFormsClient</RootNamespace>
+    <AssemblyName>MilkotronicSystem.Desktop.WinFormsClient</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoggedUserModel.cs" />
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MilkotronicSystem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MilkotronicSystem.Designer.cs">
+      <DependentUpon>MilkotronicSystem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PcbDataModel.cs" />
+    <Compile Include="PcbDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PcbDetails.Designer.cs">
+      <DependentUpon>PcbDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PcbModel.cs" />
+    <Compile Include="PcbThermoModel.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportByDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportByDate.Designer.cs">
+      <DependentUpon>ReportByDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportByDateOperator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportByDateOperator.Designer.cs">
+      <DependentUpon>ReportByDateOperator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportByOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportByOrder.Designer.cs">
+      <DependentUpon>ReportByOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserModel.cs" />
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MilkotronicSystem.resx">
+      <DependentUpon>MilkotronicSystem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PcbDetails.resx">
+      <DependentUpon>PcbDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ReportByDate.resx">
+      <DependentUpon>ReportByDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportByDateOperator.resx">
+      <DependentUpon>ReportByDateOperator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportByOrder.resx">
+      <DependentUpon>ReportByOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MilkotronicSystem.Data\MilkotronicSystem.Data.csproj">
+      <Project>{63c56872-aa82-4f97-96f4-3925fd5a8b98}</Project>
+      <Name>MilkotronicSystem.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
