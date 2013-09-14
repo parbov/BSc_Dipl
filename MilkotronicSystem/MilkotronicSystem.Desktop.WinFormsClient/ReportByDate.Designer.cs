@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportByDate));
             this.label1 = new System.Windows.Forms.Label();
             this.tb_Day = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -107,6 +108,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tb_Day);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReportByDate";
             this.Text = "Report";
             this.Load += new System.EventHandler(this.ReportByDate_Load);

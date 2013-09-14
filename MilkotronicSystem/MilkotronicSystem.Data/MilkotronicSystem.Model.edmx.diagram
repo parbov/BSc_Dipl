@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7f5d0d41d6f044e5b46a71a3928b8ab1" Name="Diagram1" ZoomLevel="77">
+      <Diagram DiagramId="7f5d0d41d6f044e5b46a71a3928b8ab1" Name="Diagram1" ZoomLevel="76">
         <EntityTypeShape EntityType="MilkotronicSystemModel.PCB_Data" Width="1.5" PointX="3" PointY="1.375" />
         <EntityTypeShape EntityType="MilkotronicSystemModel.PCB" Width="1.5" PointX="0.75" PointY="6.5" />
         <EntityTypeShape EntityType="MilkotronicSystemModel.Sensor" Width="1.5" PointX="3" PointY="7.25" />

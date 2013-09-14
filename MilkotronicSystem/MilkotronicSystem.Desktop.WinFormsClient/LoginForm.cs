@@ -68,9 +68,6 @@ namespace MilkotronicSystem.Desktop.WinFormsClient
             return BitConverter.ToString(cryptoTransformSHA1.ComputeHash(buffer)).Replace("-", "");
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

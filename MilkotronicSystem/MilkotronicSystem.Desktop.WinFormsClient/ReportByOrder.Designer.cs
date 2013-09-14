@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportByOrder));
             this.label1 = new System.Windows.Forms.Label();
             this.tb_Search = new System.Windows.Forms.TextBox();
             this.btn_GenReport = new System.Windows.Forms.Button();
@@ -67,6 +68,7 @@
             this.Controls.Add(this.btn_GenReport);
             this.Controls.Add(this.tb_Search);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReportByOrder";
             this.Text = "Report By Order";
             this.Load += new System.EventHandler(this.ReportByOrder_Load);

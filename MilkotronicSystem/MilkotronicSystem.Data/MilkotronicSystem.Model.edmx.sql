@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 08/23/2013 10:56:01
+-- Date Created: 09/12/2013 11:11:36
 -- Generated from EDMX file: D:\TU\diplomna\MilkotronicSystem\MilkotronicSystem.Data\MilkotronicSystem.Model.edmx
 -- --------------------------------------------------
 
@@ -51,14 +51,6 @@ GO
 -- Creating all tables
 -- --------------------------------------------------
 
--- Creating table 'Users'
-CREATE TABLE [dbo].[Users] (
-    [id] int IDENTITY(1,1) NOT NULL,
-    [username] nvarchar(50)  NOT NULL,
-    [password] nvarchar(40)  NOT NULL
-);
-GO
-
 -- Creating table 'PCB_Data'
 CREATE TABLE [dbo].[PCB_Data] (
     [id] int IDENTITY(1,1) NOT NULL,
@@ -80,7 +72,8 @@ CREATE TABLE [dbo].[PCB_Data] (
     [operator] nchar(10)  NULL,
     [programVersion] float  NULL,
     [options] nvarchar(50)  NULL,
-    [numberPcb] int  NOT NULL
+    [numberPcb] int  NOT NULL,
+    [numberSensor] int  NOT NULL
 );
 GO
 
@@ -117,15 +110,18 @@ CREATE TABLE [dbo].[Thermo_Data] (
 );
 GO
 
+-- Creating table 'Users'
+CREATE TABLE [dbo].[Users] (
+    [id] int IDENTITY(1,1) NOT NULL,
+    [username] nvarchar(50)  NOT NULL,
+    [authCode] nvarchar(40)  NOT NULL,
+    [sessionKey] nvarchar(50)  NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
-
--- Creating primary key on [id] in table 'Users'
-ALTER TABLE [dbo].[Users]
-ADD CONSTRAINT [PK_Users]
-    PRIMARY KEY CLUSTERED ([id] ASC);
-GO
 
 -- Creating primary key on [id] in table 'PCB_Data'
 ALTER TABLE [dbo].[PCB_Data]
@@ -148,6 +144,12 @@ GO
 -- Creating primary key on [id] in table 'Thermo_Data'
 ALTER TABLE [dbo].[Thermo_Data]
 ADD CONSTRAINT [PK_Thermo_Data]
+    PRIMARY KEY CLUSTERED ([id] ASC);
+GO
+
+-- Creating primary key on [id] in table 'Users'
+ALTER TABLE [dbo].[Users]
+ADD CONSTRAINT [PK_Users]
     PRIMARY KEY CLUSTERED ([id] ASC);
 GO
 
