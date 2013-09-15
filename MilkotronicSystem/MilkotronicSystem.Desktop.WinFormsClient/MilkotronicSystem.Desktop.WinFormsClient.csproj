@@ -66,67 +66,67 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="About.cs">
+    <Compile Include="Views\About.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="About.Designer.cs">
+    <Compile Include="Views\About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoggedUserModel.cs" />
-    <Compile Include="LoginForm.cs">
+    <Compile Include="Models\LoggedUserModel.cs" />
+    <Compile Include="Views\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
+    <Compile Include="Views\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MilkotronicSystem.cs">
+    <Compile Include="Views\MilkotronicSystem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MilkotronicSystem.Designer.cs">
+    <Compile Include="Views\MilkotronicSystem.Designer.cs">
       <DependentUpon>MilkotronicSystem.cs</DependentUpon>
     </Compile>
-    <Compile Include="PcbDataModel.cs" />
-    <Compile Include="PcbDetails.cs">
+    <Compile Include="Models\PcbDataModel.cs" />
+    <Compile Include="Views\PcbDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PcbDetails.Designer.cs">
+    <Compile Include="Views\PcbDetails.Designer.cs">
       <DependentUpon>PcbDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="PcbModel.cs" />
-    <Compile Include="PcbThermoModel.cs" />
+    <Compile Include="Models\PcbModel.cs" />
+    <Compile Include="Models\PcbThermoModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReportByDate.cs">
+    <Compile Include="Views\ReportByDate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReportByDate.Designer.cs">
+    <Compile Include="Views\ReportByDate.Designer.cs">
       <DependentUpon>ReportByDate.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReportByDateOperator.cs">
+    <Compile Include="Views\ReportByDateOperator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReportByDateOperator.Designer.cs">
+    <Compile Include="Views\ReportByDateOperator.Designer.cs">
       <DependentUpon>ReportByDateOperator.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReportByOrder.cs">
+    <Compile Include="Views\ReportByOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReportByOrder.Designer.cs">
+    <Compile Include="Views\ReportByOrder.Designer.cs">
       <DependentUpon>ReportByOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserModel.cs" />
-    <EmbeddedResource Include="About.resx">
+    <Compile Include="Models\UserModel.cs" />
+    <EmbeddedResource Include="Views\About.resx">
       <DependentUpon>About.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
+    <EmbeddedResource Include="Views\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="MilkotronicSystem.resx">
+    <EmbeddedResource Include="Views\MilkotronicSystem.resx">
       <DependentUpon>MilkotronicSystem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PcbDetails.resx">
+    <EmbeddedResource Include="Views\PcbDetails.resx">
       <DependentUpon>PcbDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -138,13 +138,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ReportByDate.resx">
+    <EmbeddedResource Include="Views\ReportByDate.resx">
       <DependentUpon>ReportByDate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportByDateOperator.resx">
+    <EmbeddedResource Include="Views\ReportByDateOperator.resx">
       <DependentUpon>ReportByDateOperator.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportByOrder.resx">
+    <EmbeddedResource Include="Views\ReportByOrder.resx">
       <DependentUpon>ReportByOrder.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />

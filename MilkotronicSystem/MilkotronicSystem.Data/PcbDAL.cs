@@ -96,10 +96,10 @@ namespace MilkotronicSystem.Data
             string sensor, string speed, string cal1, string cal2, string cal3, string program, string data, string orderNumber,
             string clientName, string country, string operatorInitials, string programVersion, string options)
        {
-           int ne6to = int.Parse(pcb);
+           int pcbNum = int.Parse(pcb);
            PCB_Data existingPcbData =
                (from d in context.PCB_Data
-                where d.numberPcb == ne6to
+                where d.numberPcb == pcbNum
                 select d).FirstOrDefault();
            if (existingPcbData != null)
            {
@@ -139,10 +139,10 @@ namespace MilkotronicSystem.Data
 
        private static Sensor CreateOrLoadSensor(MilkotronicSystemEntities context, string sensor,string pcb)
        {
-           int ne6to=int.Parse(sensor);
+           int sensorNum=int.Parse(sensor);
            Sensor existingSensor =
                (from s in context.Sensors
-                where s.number == ne6to
+                where s.number == sensorNum
                 select s).FirstOrDefault();
            if (existingSensor != null)
            {
@@ -160,10 +160,10 @@ namespace MilkotronicSystem.Data
 
        private static PCB CreateOrLoadPcb(MilkotronicSystemEntities context, string pcb,string sensor)
        {
-           int ne6to = int.Parse(pcb);
+           int pcbNum = int.Parse(pcb);
            PCB existingPcb =
                (from p in context.PCBs
-                where p.pcbNumber == ne6to
+                where p.pcbNumber == pcbNum
                 select p).FirstOrDefault();
            if (existingPcb != null)
            {
