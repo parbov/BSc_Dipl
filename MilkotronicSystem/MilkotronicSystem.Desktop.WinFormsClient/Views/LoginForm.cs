@@ -14,17 +14,25 @@ using Newtonsoft.Json;
 namespace MilkotronicSystem.Desktop.WinFormsClient
 {
 
-
+    /// <summary>
+    /// Class Login Form making login to the system 
+    /// </summary>
     public partial class LoginForm : Form
     {
         public string sessionKey { get; set; }
 
+        /// <summary>
+        /// Login Form Constructor
+        /// </summary>
         public LoginForm()
         {
             InitializeComponent();
 
         }
 
+        /// <summary>
+        /// Handlinng event click on button login, creating http post request to server
+        /// </summary>
         private void btn_login_Click(object sender, EventArgs e)
         {
             try
@@ -61,11 +69,27 @@ namespace MilkotronicSystem.Desktop.WinFormsClient
             }
         }
 
+        /// <summary>
+        /// Method creating hash version of given text using SHA1 hashing algorithm
+        /// </summary>
+        /// <param name="text">Text to hash</param>
+        /// <param name="enc">Used Encoding</param>
+        /// <returns>returns hashed text</returns>
         public static string CalculateSHA1(string text, Encoding enc)
         {
             byte[] buffer = enc.GetBytes(text);
             SHA1CryptoServiceProvider cryptoTransformSHA1 = new SHA1CryptoServiceProvider();
             return BitConverter.ToString(cryptoTransformSHA1.ComputeHash(buffer)).Replace("-", "");
+        }
+
+        /// <summary>
+        /// Handling events on Load Login form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
         }
 
        

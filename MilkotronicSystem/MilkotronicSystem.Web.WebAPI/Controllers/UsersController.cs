@@ -11,6 +11,9 @@ using MilkotronicSystem.Web.WebAPI.Models;
 
 namespace MilkotronicSystem.Web.WebAPI.Controllers
 {
+    /// <summary>
+    /// Controller handling user functions
+    /// </summary>
     public class UsersController : BaseApiController
     {
         private const int MinUsernameLength = 6;
@@ -26,10 +29,18 @@ namespace MilkotronicSystem.Web.WebAPI.Controllers
 
         private const int Sha1Length = 40;
 
+        /// <summary>
+        /// Controller constructor
+        /// </summary>
         public UsersController()
         {
         }
 
+        /// <summary>
+        /// Creating RESTful endpoint for action login
+        /// </summary>
+        /// <param name="model">takes an object Of type UserModel from the body of the http request</param>
+        /// <returns>http status code Created and an object of type LoggedModel</returns>
         [HttpPost]
         [ActionName("login")]
         public HttpResponseMessage PostLoginUser(UserModel model)
@@ -73,6 +84,11 @@ namespace MilkotronicSystem.Web.WebAPI.Controllers
             return responseMsg;
         }
 
+        /// <summary>
+        /// Creating RESTful endpoint for action logout
+        /// </summary>
+        /// <param name="sessionKey">used for authorising the user</param>
+        /// <returns>HttpStatusCode.OK</returns>
         [HttpPut]
         [ActionName("logout")]
         public HttpResponseMessage PutLogout(string sessionKey)
@@ -95,6 +111,11 @@ namespace MilkotronicSystem.Web.WebAPI.Controllers
             return responseMsg;
         }
 
+        /// <summary>
+        /// Method for generating a session key for a user
+        /// </summary>
+        /// <param name="userId">id of the user, used for finding the user in the database</param>
+        /// <returns>generated session key</returns>
         private string GenerateSessionKey(int userId)
         {
             StringBuilder skeyBuilder = new StringBuilder(SessionKeyLength);
@@ -107,6 +128,10 @@ namespace MilkotronicSystem.Web.WebAPI.Controllers
             return skeyBuilder.ToString();
         }
 
+        /// <summary>
+        /// Method for validating a given authorisation code
+        /// </summary>
+        /// <param name="authCode">authorisation code for validation</param>
         private void ValidateAuthCode(string authCode)
         {
             if (authCode == null || authCode.Length != Sha1Length)
@@ -115,7 +140,10 @@ namespace MilkotronicSystem.Web.WebAPI.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Method for validating given username
+        /// </summary>
+        /// <param name="username">username for validation</param>
         private void ValidateUsername(string username)
         {
             if (username == null)

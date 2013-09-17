@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace MilkotronicSystem.Data
 {
+    /// <summary>
+    /// Class with functions for data manipulation
+    /// </summary>
    public class PcbDAL
     {
+       /// <summary>
+       /// Method for creating database context and sending data for manipulation
+       /// </summary>
        public static void AddPcbData(string date, string time, string operation, string model, string pcb, string box,
             string sensor, string speed, string cal1, string cal2, string cal3, string program, string data, string orderNumber,
             string clientName, string country, string operatorInitials, string programVersion, string options)
@@ -19,6 +25,9 @@ namespace MilkotronicSystem.Data
            
        }
 
+       /// <summary>
+       /// Method for creating database context and sending data for manipulation
+       /// </summary>
        public static void AddThermoData(string date, string time, string box, string pcb, string sensor, string newbox,
            string newPcb, string newSensor, string n40, string p60, string workplace, string programversion,
            string ad623, string amplitude)

@@ -19,7 +19,9 @@ namespace MilkotronicSystem.Desktop.ConsoleClient
             
         }
 
-
+        /// <summary>
+        /// Method for parsing log file and send parsed data to the database access layer
+        /// </summary>
         private static void UpdateThermoData()
         {
             StreamReader reader = new StreamReader("LSSetup-Thermo-NK1.log");
@@ -55,6 +57,9 @@ namespace MilkotronicSystem.Desktop.ConsoleClient
             }
         }
 
+        /// <summary>
+        /// Method for parsing log file and send parsed data to the database access layer
+        /// </summary>
         private static void UpdateMainPcbData()
         {
             StreamReader reader = new StreamReader("LSProd-MainPCB.log");
@@ -96,6 +101,9 @@ namespace MilkotronicSystem.Desktop.ConsoleClient
             }
         }
 
+        /// <summary>
+        /// Method for testing the file parser
+        /// </summary>
         private static void TestParser(string date, string time, string operation, string model, string pcb, string box,
             string sensor, string speed, string cal1, string cal2, string cal3, string program, string data, string orderNumber,
             string clientName, string country, string operatorInitials, string programVersion, string options)

@@ -12,12 +12,23 @@ using MilkotronicSystem.Data;
 
 namespace MilkotronicSystem.Web.WebAPI.Controllers
 {
+    /// <summary>
+    /// Controller for creating RESTful endpoints
+    /// </summary>
     public class PcbsController : BaseApiController
     {
+        /// <summary>
+        /// Controller constructor
+        /// </summary>
         public PcbsController()
         {
         }
 
+        /// <summary>
+        /// Creating restful endpoint for getting list of objects, generated from PcbModel
+        /// </summary>
+        /// <param name="sessionKey">used for authorization of the user</param>
+        /// <returns>list of PcbModel objects ordered descending</returns>
         [HttpGet]
         [ActionName("get-all")]
        public IQueryable<PcbModel> GetAll(string sessionKey)
@@ -90,6 +101,12 @@ namespace MilkotronicSystem.Web.WebAPI.Controllers
            return responseMsg;
        }
 
+        /// <summary>
+        /// Method for filtering the results of action get-all by a search number
+        /// </summary>
+        /// <param name="sessionKey">used for authorization of the user</param>
+        /// <param name="searchNumber">filter criteria</param>
+        /// <returns>filtered list</returns>
         [HttpGet]
         [ActionName("get-by-pcb")]
         public IQueryable<PcbModel> GetByPcbNumber(string sessionKey, int searchNumber)
@@ -99,6 +116,12 @@ namespace MilkotronicSystem.Web.WebAPI.Controllers
             return models;
         }
 
+        /// <summary>
+        /// Method for filtering the results of action get-all by a search criteria
+        /// </summary>
+        /// <param name="sessionKey">used for authorization of the user</param>
+        /// <param name="date">filter criteria</param>
+        /// <returns>filtered list</returns>
         [HttpGet]
         [ActionName("get-by-date")]
         public IQueryable<PcbModel> GetByDate(string sessionKey, string date)
@@ -109,6 +132,13 @@ namespace MilkotronicSystem.Web.WebAPI.Controllers
                 
         }
 
+        /// <summary>
+        /// Method for filtering the results of action get-all by a search criteria
+        /// </summary>
+        /// <param name="sessionKey">used for authorization of the user</param>
+        /// <param name="date">search criteria</param>
+        /// <param name="placeOperator">search criteria</param>
+        /// <returns>filtered list</returns>
         [HttpGet]
         [ActionName("get-by-date-operator")]
         public IQueryable<PcbModel> GetByDateAndOperator(string sessionkey, string date, string placeOperator)
@@ -118,6 +148,12 @@ namespace MilkotronicSystem.Web.WebAPI.Controllers
             return models;
         }
 
+        /// <summary>
+        /// Method for filtering the results of action get-all by a search criteria
+        /// </summary>
+        /// <param name="sessionKey">used for authorization of the user</param>
+        /// <param name="orderNumber">search criteria</param>
+        /// <returns>filtered list</returns>
         [HttpGet]
         [ActionName("get-by-order")]
         public IQueryable<PcbModel> GetByOrderNumber(string sessionKey, string orderNumber)
@@ -127,6 +163,11 @@ namespace MilkotronicSystem.Web.WebAPI.Controllers
             return models;
         }
 
+        /// <summary>
+        /// Creating restful endpoint for getting list of objects, generated from PcbDataModel
+        /// </summary>
+        /// <param name="sessionKey">used for authorization of the user</param>
+        /// <returns>list of objects of type PcbDataModel</returns>
         [HttpGet]
         [ActionName("get-pcbdata")]
         public IQueryable<PcbDataModel> GetAllPcbData(string sessionKey)
@@ -176,6 +217,12 @@ namespace MilkotronicSystem.Web.WebAPI.Controllers
             return responseMsg;
         }
 
+        /// <summary>
+        /// Method for filtering the results of action get-pcbdata by a search criteria
+        /// </summary>
+        /// <param name="sessionKey">used for authorization of the user</param>
+        /// <param name="searchNumber">filter criteria</param>
+        /// <returns>filtered list of objects</returns>
         [HttpGet]
         [ActionName("get-pcbdata-bynumber")]
         public IQueryable<PcbDataModel> GetPcbDataByNumber(string sessionKey, int searchNumber)
@@ -185,6 +232,12 @@ namespace MilkotronicSystem.Web.WebAPI.Controllers
             return models;
         }
 
+        /// <summary>
+        /// Method for filtering the results of action get-pcbdata by a search criteria
+        /// </summary>
+        /// <param name="sessionKey">used for authorization of the user</param>
+        /// <param name="date">filter criteria</param>
+        /// <returns>filtered list of objects</returns>
         [HttpGet]
         [ActionName("get-pcbdata-bydate")]
         public IQueryable<PcbDataModel> GetPcbDataByDate(string sessionKey,string date)
@@ -194,6 +247,13 @@ namespace MilkotronicSystem.Web.WebAPI.Controllers
             return models;
         }
 
+        /// <summary>
+        /// Method for filtering the results of action get-pcbdata by a search criteria
+        /// </summary>
+        /// <param name="sessionKey">used for authorization of the user</param>
+        /// <param name="date">filter criteria</param>
+        /// <param name="placeOperator">filter criteria</param>
+        /// <returns>filtered list of PcbDataObjects</returns>
         [HttpGet]
         [ActionName("get-pcbdata-bydateoperator")]
         public IQueryable<PcbDataModel> GetPcbDataByDateOperator(string sessionKey, string date, string placeOperator)
@@ -203,6 +263,12 @@ namespace MilkotronicSystem.Web.WebAPI.Controllers
             return models;
         }
 
+        /// <summary>
+        /// Method for filtering the results of action get-pcbdata by a search criteria
+        /// </summary>
+        /// <param name="sessionKey">used for authorization of the user</param>
+        /// <param name="orderNumber">filter criteria</param>
+        /// <returns>filtered list of PcbDataModel objects</returns>
         [HttpGet]
         [ActionName("get-pcbdata-byorder")]
         public IQueryable<PcbDataModel> GetPcbDataByOrder(string sessionKey, string orderNumber)
@@ -213,6 +279,11 @@ namespace MilkotronicSystem.Web.WebAPI.Controllers
             return models;
         }
 
+        /// <summary>
+        /// Creating restful endpoint for getting list of objects, generated from PcbThermoModel
+        /// </summary>
+        /// <param name="sessionKey">used for authorization of the user</param>
+        /// <returns>list of objects of type PcbThermoModel</returns>
         [HttpGet]
         [ActionName("get-thermodata")]
         public IQueryable<PcbThermoModel> GetAllThermoData(string sessionKey)
@@ -251,6 +322,12 @@ namespace MilkotronicSystem.Web.WebAPI.Controllers
             return responseMsg;
         }
 
+        /// <summary>
+        /// Method for filtering the results of action get-thermodata by a filter criteria
+        /// </summary>
+        /// <param name="sessionKey">used for authorization of the user</param>
+        /// <param name="searchNumber">filter criteria</param>
+        /// <returns>filtered list</returns>
         [HttpGet]
         [ActionName("get-thermodata-bynumber")]
         public IQueryable<PcbThermoModel> GetThermoDataByNumber(string sessionKey, int searchNumber)
@@ -260,6 +337,12 @@ namespace MilkotronicSystem.Web.WebAPI.Controllers
             return models;
         }
 
+        /// <summary>
+        /// Method for filtering the results of action get-thermodata by a filter criteria
+        /// </summary>
+        /// <param name="sessionKey">used for authorization of the user</param>
+        /// <param name="date">filter criteria</param>
+        /// <returns>filtered list</returns>
         [HttpGet]
         [ActionName("get-thermodata-bydate")]
         public IQueryable<PcbThermoModel> GetThermoDataByDate(string sessionKey, string date)
